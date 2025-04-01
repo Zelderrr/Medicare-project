@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Medical Professionals</title>
+    <g id="doctors" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- Background Pattern -->
+        <rect id="background" fill="#0D6EFD" opacity="0.05" x="0" y="0" width="800" height="600" rx="10"></rect>
+        <circle id="circle-1" fill="#0D6EFD" opacity="0.1" cx="200" cy="100" r="50"></circle>
+        <circle id="circle-2" fill="#0D6EFD" opacity="0.1" cx="700" cy="200" r="80"></circle>
+        <circle id="circle-3" fill="#0D6EFD" opacity="0.1" cx="100" cy="450" r="70"></circle>
+        <circle id="circle-4" fill="#0D6EFD" opacity="0.1" cx="600" cy="500" r="60"></circle>
+        
+        <!-- Hospital Building Outline -->
+        <g id="hospital-outline" transform="translate(300, 50)" opacity="0.1">
+            <rect id="building" stroke="#0D6EFD" stroke-width="3" x="0" y="50" width="200" height="150"></rect>
+            <polygon id="roof" stroke="#0D6EFD" stroke-width="3" points="0,50 100,0 200,50"></polygon>
+            <rect id="window-1" stroke="#0D6EFD" stroke-width="2" x="30" y="80" width="40" height="40"></rect>
+            <rect id="window-2" stroke="#0D6EFD" stroke-width="2" x="130" y="80" width="40" height="40"></rect>
+            <rect id="door" stroke="#0D6EFD" stroke-width="2" x="80" y="130" width="40" height="70"></rect>
+            <g id="medical-cross" transform="translate(85, 20)">
+                <rect id="vertical" stroke="#FF4757" stroke-width="2" x="15" y="0" width="10" height="40"></rect>
+                <rect id="horizontal" stroke="#FF4757" stroke-width="2" x="0" y="15" width="40" height="10"></rect>
+            </g>
+        </g>
+        
+        <!-- Doctor 1 (Male) -->
+        <g id="doctor-male" transform="translate(150, 220)">
+            <!-- Head and Face -->
+            <circle id="head" fill="#0D6EFD" cx="70" cy="70" r="70"></circle>
+            <circle id="face" fill="#FFFFFF" cx="70" cy="75" r="60"></circle>
+            
+            <!-- Face Features -->
+            <circle id="eye-left" fill="#495057" cx="50" cy="65" r="5"></circle>
+            <circle id="eye-right" fill="#495057" cx="90" cy="65" r="5"></circle>
+            <path d="M60,90 C65,95 75,95 80,90" id="mouth" stroke="#495057" stroke-width="3" stroke-linecap="round"></path>
+            
+            <!-- Hair -->
+            <path d="M70,15 C40,15 10,40 20,75 C30,70 40,70 70,70 C100,70 110,70 120,75 C130,40 100,15 70,15 Z" id="hair" fill="#495057"></path>
+            
+            <!-- Body -->
+            <rect id="lab-coat" fill="#FFFFFF" x="20" y="140" width="100" height="180" rx="5"></rect>
+            <rect id="scrubs" fill="#0D6EFD" opacity="0.7" x="45" y="140" width="50" height="80" rx="5"></rect>
+            
+            <!-- Medical Mask -->
+            <path d="M40,85 L40,100 C40,110 100,110 100,100 L100,85" id="mask" stroke="#ADB5BD" stroke-width="3" fill="#E9ECEF"></path>
+            
+            <!-- Stethoscope -->
+            <path d="M50,180 C20,200 20,240 40,250 C50,255 60,250 65,240" id="stethoscope" stroke="#495057" stroke-width="3" fill="none"></path>
+            <circle id="stethoscope-head" fill="#495057" cx="40" cy="250" r="10"></circle>
+            
+            <!-- Name Badge -->
+            <rect id="badge" fill="#FFFFFF" stroke="#495057" x="45" y="230" width="30" height="20" rx="2"></rect>
+            <text id="badge-text" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#495057">
+                <tspan x="49" y="243">DR</tspan>
+            </text>
+            
+            <!-- Arm with Clipboard -->
+            <path d="M120,200 C140,220 150,250 130,280" id="arm-right" fill="#FFFFFF" stroke="#495057"></path>
+            <rect id="clipboard" fill="#ADB5BD" x="130" y="220" width="40" height="60" rx="4"></rect>
+            <rect id="clipboard-paper" fill="#FFFFFF" x="135" y="230" width="30" height="40"></rect>
+            <path d="M140,240 L160,240 M140,250 L155,250 M140,260 L150,260" id="lines" stroke="#495057" stroke-linecap="round"></path>
+        </g>
+        
+        <!-- Doctor 2 (Female) -->
+        <g id="doctor-female" transform="translate(450, 220)">
+            <!-- Head and Face -->
+            <circle id="head" fill="#FF8C9E" cx="70" cy="70" r="70"></circle>
+            <circle id="face" fill="#FFFFFF" cx="70" cy="75" r="60"></circle>
+            
+            <!-- Face Features -->
+            <circle id="eye-left" fill="#495057" cx="50" cy="65" r="5"></circle>
+            <circle id="eye-right" fill="#495057" cx="90" cy="65" r="5"></circle>
+            <path d="M60,90 C65,95 75,95 80,90" id="mouth" stroke="#495057" stroke-width="3" stroke-linecap="round"></path>
+            
+            <!-- Hair -->
+            <path d="M70,15 C40,15 10,40 20,75 C30,70 110,70 120,75 C130,40 100,15 70,15 Z" id="hair" fill="#FF8C9E"></path>
+            <path d="M25,70 C25,90 30,140 50,160" id="hair-side-left" fill="#FF8C9E"></path>
+            <path d="M115,70 C115,90 110,140 90,160" id="hair-side-right" fill="#FF8C9E"></path>
+            
+            <!-- Body -->
+            <rect id="lab-coat" fill="#FFFFFF" x="20" y="140" width="100" height="180" rx="5"></rect>
+            <rect id="scrubs" fill="#17A2B8" opacity="0.7" x="45" y="140" width="50" height="80" rx="5"></rect>
+            
+            <!-- Stethoscope -->
+            <path d="M90,180 C120,200 120,240 100,250 C90,255 80,250 75,240" id="stethoscope" stroke="#495057" stroke-width="3" fill="none"></path>
+            <circle id="stethoscope-head" fill="#495057" cx="100" cy="250" r="10"></circle>
+            
+            <!-- Name Badge -->
+            <rect id="badge" fill="#FFFFFF" stroke="#495057" x="65" y="230" width="30" height="20" rx="2"></rect>
+            <text id="badge-text" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#495057">
+                <tspan x="69" y="243">DR</tspan>
+            </text>
+            
+            <!-- Arm with Digital Tablet -->
+            <path d="M20,200 C0,220 -10,250 10,280" id="arm-left" fill="#FFFFFF" stroke="#495057"></path>
+            <rect id="tablet" fill="#495057" x="-20" y="230" width="50" height="70" rx="5"></rect>
+            <rect id="tablet-screen" fill="#ADB5BD" x="-15" y="235" width="40" height="60" rx="2"></rect>
+            <circle id="tablet-button" fill="#FFFFFF" cx="5" cy="270" r="3"></circle>
+        </g>
+        
+        <!-- Medical Icons -->
+        <g id="medical-icons">
+            <circle id="pulse-dot-1" fill="#FF4757" cx="150" cy="500" r="5"></circle>
+            <circle id="pulse-dot-2" fill="#FF4757" cx="180" cy="480" r="5"></circle>
+            <circle id="pulse-dot-3" fill="#FF4757" cx="210" cy="520" r="5"></circle>
+            <circle id="pulse-dot-4" fill="#FF4757" cx="240" cy="460" r="5"></circle>
+            <circle id="pulse-dot-5" fill="#FF4757" cx="270" cy="500" r="5"></circle>
+            <circle id="pulse-dot-6" fill="#FF4757" cx="300" cy="490" r="5"></circle>
+            <path id="pulse-line" stroke="#FF4757" stroke-width="2" d="M150,500 L180,480 L210,520 L240,460 L270,500 L300,490" stroke-linecap="round"></path>
+            
+            <g id="caduceus" transform="translate(550, 470)">
+                <rect id="staff" fill="#495057" x="25" y="0" width="10" height="100"></rect>
+                <path id="snake-1" stroke="#17A2B8" stroke-width="5" d="M20,20 C0,30 0,50 20,60 C40,70 40,90 20,100" stroke-linecap="round"></path>
+                <path id="snake-2" stroke="#17A2B8" stroke-width="5" d="M40,20 C60,30 60,50 40,60 C20,70 20,90 40,100" stroke-linecap="round"></path>
+                <circle id="snake-eye-1" fill="#495057" cx="20" cy="25" r="2"></circle>
+                <circle id="snake-eye-2" fill="#495057" cx="40" cy="25" r="2"></circle>
+                <path id="wings" fill="#0D6EFD" opacity="0.2" d="M30,30 C10,20 0,10 10,0 C30,20 50,20 70,0 C80,10 70,20 50,30"></path>
+            </g>
+        </g>
+        
+        <!-- Text Elements -->
+        <g id="text-elements" font-family="Arial, sans-serif" font-weight="bold">
+            <text id="title" font-size="40" fill="#0D6EFD" x="290" y="460">
+                <tspan>HEALTHCARE</tspan>
+            </text>
+            <text id="subtitle" font-size="30" fill="#495057" x="320" y="500">
+                <tspan>PROFESSIONALS</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

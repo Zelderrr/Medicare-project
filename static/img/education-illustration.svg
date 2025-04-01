@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="primaryGradient">
+      <stop stop-color="#4361ee" offset="0%"></stop>
+      <stop stop-color="#3a0ca3" offset="100%"></stop>
+    </linearGradient>
+    <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="accentGradient">
+      <stop stop-color="#f72585" offset="0%"></stop>
+      <stop stop-color="#7209b7" offset="100%"></stop>
+    </linearGradient>
+    <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="blueGradient">
+      <stop stop-color="#4cc9f0" offset="0%"></stop>
+      <stop stop-color="#4361ee" offset="100%"></stop>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Elements -->
+  <circle cx="140" cy="520" r="70" fill="url(#primaryGradient)" opacity="0.1"></circle>
+  <circle cx="680" cy="180" r="90" fill="url(#accentGradient)" opacity="0.1"></circle>
+  <circle cx="400" cy="100" r="50" fill="url(#blueGradient)" opacity="0.1"></circle>
+  
+  <!-- Main Graduation Cap -->
+  <g transform="translate(400, 300) scale(1.5)">
+    <!-- Cap Base -->
+    <rect x="-80" y="-10" width="160" height="20" rx="5" fill="url(#primaryGradient)"></rect>
+    
+    <!-- Cap Top -->
+    <polygon points="0,-60 80,-10 -80,-10" fill="url(#primaryGradient)"></polygon>
+    
+    <!-- Tassel -->
+    <path d="M0,-60 Q10,-40 20,-60 Q30,-80 0,-90 Q-30,-80 -20,-60 Q-10,-40 0,-60Z" fill="url(#accentGradient)"></path>
+    <path d="M20,-60 C25,-40 30,-20 40,20" stroke="url(#accentGradient)" stroke-width="3" fill="none"></path>
+    <circle cx="40" cy="25" r="8" fill="url(#accentGradient)"></circle>
+  </g>
+  
+  <!-- Student Figure -->
+  <g transform="translate(250, 350)">
+    <!-- Head -->
+    <circle cx="0" cy="-50" r="30" fill="#FFFFFF" stroke="#333333" stroke-width="2"></circle>
+    
+    <!-- Body -->
+    <path d="M0,-20 L0,60 M-40,0 L40,0" stroke="#333333" stroke-width="4"></path>
+    
+    <!-- Arms -->
+    <path d="M-40,0 C-60,20 -70,50 -60,80" stroke="#333333" stroke-width="3"></path>
+    <path d="M40,0 C70,10 90,30 100,10" stroke="#333333" stroke-width="3"></path>
+    
+    <!-- Legs -->
+    <path d="M0,60 L-30,120" stroke="#333333" stroke-width="3"></path>
+    <path d="M0,60 L30,120" stroke="#333333" stroke-width="3"></path>
+    
+    <!-- Book -->
+    <rect x="70" y="10" width="40" height="30" fill="url(#blueGradient)" rx="2"></rect>
+    <rect x="70" y="10" width="40" height="5" fill="#FFFFFF" opacity="0.3" rx="2"></rect>
+  </g>
+  
+  <!-- Floating Elements -->
+  <!-- Calculator -->
+  <g transform="translate(550, 320) rotate(-15)">
+    <rect x="-25" y="-35" width="50" height="70" rx="5" fill="#333333"></rect>
+    <rect x="-20" y="-30" width="40" height="15" rx="2" fill="#FFFFFF"></rect>
+    <circle cx="-15" cy="-5" r="5" fill="url(#primaryGradient)"></circle>
+    <circle cx="0" cy="-5" r="5" fill="url(#accentGradient)"></circle>
+    <circle cx="15" cy="-5" r="5" fill="url(#blueGradient)"></circle>
+    <circle cx="-15" cy="10" r="5" fill="url(#blueGradient)"></circle>
+    <circle cx="0" cy="10" r="5" fill="url(#primaryGradient)"></circle>
+    <circle cx="15" cy="10" r="5" fill="url(#accentGradient)"></circle>
+    <circle cx="-15" cy="25" r="5" fill="url(#accentGradient)"></circle>
+    <circle cx="0" cy="25" r="5" fill="url(#blueGradient)"></circle>
+    <circle cx="15" cy="25" r="5" fill="url(#primaryGradient)"></circle>
+  </g>
+  
+  <!-- Pencil -->
+  <g transform="translate(480, 230) rotate(45)">
+    <rect x="-5" y="-50" width="10" height="100" fill="#FDCB58"></rect>
+    <polygon points="0,-60 -5,-50 5,-50" fill="#333333"></polygon>
+    <rect x="-5" y="30" width="10" height="20" fill="#ED5564"></rect>
+  </g>
+  
+  <!-- Laptop -->
+  <g transform="translate(150, 420) rotate(5)">
+    <!-- Screen -->
+    <rect x="-40" y="-30" width="80" height="60" rx="5" fill="#333333"></rect>
+    <rect x="-35" y="-25" width="70" height="50" rx="3" fill="url(#blueGradient)"></rect>
+    
+    <!-- Base -->
+    <path d="M-45,30 L45,30 L50,45 L-50,45 Z" fill="#333333"></path>
+  </g>
+  
+  <!-- Chart -->
+  <g transform="translate(520, 450) scale(0.8)">
+    <rect x="-40" y="-50" width="80" height="80" rx="5" fill="#FFFFFF" stroke="#333333" stroke-width="2"></rect>
+    <line x1="-30" y1="20" x2="30" y2="20" stroke="#333333" stroke-width="1"></line>
+    <line x1="-30" y1="0" x2="30" y2="0" stroke="#333333" stroke-width="1"></line>
+    <line x1="-30" y1="-20" x2="30" y2="-20" stroke="#333333" stroke-width="1"></line>
+    <line x1="-30" y1="-40" x2="30" y2="-40" stroke="#333333" stroke-width="1"></line>
+    
+    <rect x="-25" y="5" width="10" height="15" fill="url(#primaryGradient)"></rect>
+    <rect x="-10" y="-10" width="10" height="30" fill="url(#accentGradient)"></rect>
+    <rect x="5" y="-25" width="10" height="45" fill="url(#blueGradient)"></rect>
+    <rect x="20" y="-35" width="10" height="55" fill="url(#primaryGradient)"></rect>
+  </g>
+</svg>

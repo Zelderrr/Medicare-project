@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Healthcare Illustration</title>
+    <g id="healthcare-illustration" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- Background Shape -->
+        <path d="M700,500 C800,400 800,200 700,100 C600,0 200,0 100,100 C0,200 0,400 100,500 C200,600 600,600 700,500 Z" id="background-shape" fill="#0D6EFD" opacity="0.1"></path>
+        
+        <!-- Hospital Building -->
+        <g id="hospital" transform="translate(100, 150)">
+            <rect id="building" fill="#3A85F7" x="0" y="100" width="300" height="250" rx="5"></rect>
+            <rect id="entrance" fill="#FFFFFF" x="120" y="280" width="60" height="70"></rect>
+            <rect id="window-1" fill="#FFFFFF" x="40" y="140" width="50" height="70" rx="2"></rect>
+            <rect id="window-2" fill="#FFFFFF" x="125" y="140" width="50" height="70" rx="2"></rect>
+            <rect id="window-3" fill="#FFFFFF" x="210" y="140" width="50" height="70" rx="2"></rect>
+            <rect id="window-4" fill="#FFFFFF" x="40" y="240" width="50" height="70" rx="2"></rect>
+            <rect id="window-5" fill="#FFFFFF" x="210" y="240" width="50" height="70" rx="2"></rect>
+            
+            <!-- Hospital Roof -->
+            <polygon id="roof" fill="#2563EB" points="0,100 150,20 300,100"></polygon>
+            
+            <!-- Health Cross -->
+            <g id="health-cross" transform="translate(130, 50)">
+                <rect id="cross-vertical" fill="#FF4757" x="15" y="0" width="20" height="60" rx="5"></rect>
+                <rect id="cross-horizontal" fill="#FF4757" x="0" y="20" width="50" height="20" rx="5"></rect>
+            </g>
+        </g>
+        
+        <!-- Medical Records System -->
+        <g id="medical-records" transform="translate(450, 150)">
+            <!-- Monitor -->
+            <rect id="monitor" fill="#495057" x="0" y="0" width="200" height="150" rx="5"></rect>
+            <rect id="screen" fill="#ADB5BD" x="10" y="10" width="180" height="130" rx="2"></rect>
+            
+            <!-- Screen Content -->
+            <rect id="header" fill="#0D6EFD" x="20" y="20" width="160" height="20" rx="2"></rect>
+            <rect id="content-1" fill="#FFFFFF" x="20" y="50" width="160" height="10" rx="2"></rect>
+            <rect id="content-2" fill="#FFFFFF" x="20" y="70" width="160" height="10" rx="2"></rect>
+            <rect id="content-3" fill="#FFFFFF" x="20" y="90" width="160" height="10" rx="2"></rect>
+            <rect id="content-4" fill="#FFFFFF" x="20" y="110" width="120" height="10" rx="2"></rect>
+            
+            <!-- Monitor Stand -->
+            <rect id="stand-top" fill="#495057" x="85" y="150" width="30" height="10" rx="2"></rect>
+            <rect id="stand-bottom" fill="#495057" x="70" y="160" width="60" height="10" rx="2"></rect>
+            
+            <!-- Doctor Icon -->
+            <g id="doctor-icon" transform="translate(220, 30)">
+                <circle id="head" fill="#0D6EFD" cx="30" cy="20" r="20"></circle>
+                <path d="M30,50 C13.4,50 0,63.4 0,80 L60,80 C60,63.4 46.6,50 30,50 Z" id="body" fill="#0D6EFD"></path>
+                <rect id="stethoscope" fill="#FF4757" x="15" y="55" width="30" height="5" rx="2"></rect>
+            </g>
+        </g>
+        
+        <!-- ECG Line -->
+        <g id="ecg-line" transform="translate(100, 430)">
+            <path d="M0,20 L50,20 L60,0 L70,40 L80,20 L100,20 L110,50 L120,0 L130,20 L230,20 L240,40 L250,10 L260,20 L600,20" id="ecg-path" stroke="#FF4757" stroke-width="4" stroke-linecap="round"></path>
+        </g>
+        
+        <!-- Medical Icons -->
+        <g id="medical-icons">
+            <!-- Pill Icon -->
+            <g id="pill" transform="translate(550, 350)">
+                <ellipse id="pill-shape" fill="#FFD43B" cx="30" cy="30" rx="30" ry="20" transform="rotate(45, 30, 30)"></ellipse>
+                <rect id="pill-line" fill="#FFFFFF" x="22" y="10" width="16" height="40" rx="8" transform="rotate(45, 30, 30)"></rect>
+            </g>
+            
+            <!-- Heart Icon -->
+            <g id="heart" transform="translate(650, 300)">
+                <path d="M25,50 C25,50 0,35 0,15 C0,5 5,0 15,0 C20,0 25,5 25,5 C25,5 30,0 35,0 C45,0 50,5 50,15 C50,35 25,50 25,50 Z" id="heart-shape" fill="#FF4757"></path>
+            </g>
+            
+            <!-- Syringe Icon -->
+            <g id="syringe" transform="translate(160, 50)">
+                <rect id="syringe-body" fill="#ADB5BD" x="0" y="0" width="10" height="60" rx="2"></rect>
+                <rect id="syringe-plunger" fill="#495057" x="0" y="10" width="10" height="10" rx="2"></rect>
+                <rect id="syringe-container" fill="#3A85F7" opacity="0.5" x="0" y="30" width="10" height="20"></rect>
+                <rect id="syringe-needle" fill="#495057" x="3" y="60" width="4" height="20" rx="1"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

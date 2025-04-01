@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Doctor and Patient</title>
+    <g id="doctor-patient" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- Background Circle -->
+        <circle id="background-circle" fill="#0D6EFD" opacity="0.05" cx="400" cy="300" r="280"></circle>
+        
+        <!-- Doctor Figure -->
+        <g id="doctor" transform="translate(270, 120)">
+            <!-- Doctor Head -->
+            <circle id="head" fill="#3A85F7" cx="60" cy="60" r="60"></circle>
+            <circle id="face" fill="#FFFFFF" cx="60" cy="70" r="50"></circle>
+            
+            <!-- Doctor Face Features -->
+            <circle id="eye-left" fill="#495057" cx="45" cy="60" r="5"></circle>
+            <circle id="eye-right" fill="#495057" cx="75" cy="60" r="5"></circle>
+            <path d="M50,80 C55,90 65,90 70,80" id="smile" stroke="#495057" stroke-width="3" stroke-linecap="round"></path>
+            
+            <!-- Doctor Hair -->
+            <path d="M60,20 C30,20 15,40 15,65 C30,55 90,55 105,65 C105,40 90,20 60,20 Z" id="hair" fill="#495057"></path>
+            
+            <!-- Doctor Body -->
+            <path d="M10,280 L30,150 L90,150 L110,280 Z" id="coat" fill="#FFFFFF"></path>
+            <rect id="shirt" fill="#ADB5BD" x="40" y="150" width="40" height="60" rx="2"></rect>
+            <rect id="tie" fill="#FF4757" x="55" y="150" width="10" height="40" rx="2"></rect>
+            
+            <!-- Doctor Stethoscope -->
+            <path d="M40,170 C10,180 0,220 20,230" id="stethoscope-tube" stroke="#495057" stroke-width="4" stroke-linecap="round" fill="none"></path>
+            <circle id="stethoscope-head" fill="#495057" cx="20" cy="230" r="10"></circle>
+            
+            <!-- Doctor Arm Left -->
+            <path d="M10,200 C-20,230 -30,280 20,280" id="arm-left" fill="#FFFFFF"></path>
+            
+            <!-- Doctor Arm Right -->
+            <path d="M110,200 C140,230 150,280 100,280" id="arm-right" fill="#FFFFFF"></path>
+            
+            <!-- Doctor Hand -->
+            <ellipse id="hand" fill="#FFFFFF" cx="20" cy="280" rx="10" ry="10"></ellipse>
+            
+            <!-- Doctor Clipboard -->
+            <rect id="clipboard" fill="#495057" x="70" y="200" width="40" height="60" rx="4"></rect>
+            <rect id="clipboard-paper" fill="#FFFFFF" x="75" y="210" width="30" height="40" rx="2"></rect>
+            <rect id="clipboard-clip" fill="#ADB5BD" x="85" y="200" width="10" height="5" rx="2"></rect>
+            <path d="M80,220 L100,220 M80,230 L95,230 M80,240 L90,240" id="clipboard-lines" stroke="#495057" stroke-width="2" stroke-linecap="round"></path>
+        </g>
+        
+        <!-- Patient Figure -->
+        <g id="patient" transform="translate(470, 150)">
+            <!-- Patient Head -->
+            <circle id="head" fill="#FF8C9E" cx="50" cy="50" r="50"></circle>
+            <circle id="face" fill="#FFFFFF" cx="50" cy="60" r="40"></circle>
+            
+            <!-- Patient Face Features -->
+            <circle id="eye-left" fill="#495057" cx="35" cy="50" r="5"></circle>
+            <circle id="eye-right" fill="#495057" cx="65" cy="50" r="5"></circle>
+            <path d="M40,75 C45,80 55,80 60,75" id="smile" stroke="#495057" stroke-width="3" stroke-linecap="round"></path>
+            
+            <!-- Patient Hair -->
+            <path d="M50,10 C25,10 10,30 15,50 C25,45 75,45 85,50 C90,30 75,10 50,10 Z" id="hair" fill="#FFD43B"></path>
+            
+            <!-- Patient Body -->
+            <path d="M10,280 L30,130 L70,130 L90,280 Z" id="body" fill="#ADB5BD"></path>
+            <rect id="collar" fill="#FFFFFF" x="40" y="130" width="20" height="5" rx="2"></rect>
+            
+            <!-- Patient Arm Left -->
+            <path d="M10,200 C-10,230 -20,280 30,280" id="arm-left" fill="#ADB5BD"></path>
+            
+            <!-- Patient Arm Right -->
+            <path d="M90,200 C110,230 120,280 70,280" id="arm-right" fill="#ADB5BD"></path>
+            
+            <!-- Patient Hand -->
+            <ellipse id="hand" fill="#FFFFFF" cx="70" cy="280" rx="10" ry="10"></ellipse>
+        </g>
+        
+        <!-- Medical Cross Symbols -->
+        <g id="medical-symbols">
+            <g id="cross-1" transform="translate(150, 150)">
+                <rect id="cross-vertical" fill="#FF4757" opacity="0.3" x="15" y="0" width="10" height="40" rx="2"></rect>
+                <rect id="cross-horizontal" fill="#FF4757" opacity="0.3" x="0" y="15" width="40" height="10" rx="2"></rect>
+            </g>
+            
+            <g id="cross-2" transform="translate(650, 200)">
+                <rect id="cross-vertical" fill="#FF4757" opacity="0.3" x="15" y="0" width="10" height="40" rx="2"></rect>
+                <rect id="cross-horizontal" fill="#FF4757" opacity="0.3" x="0" y="15" width="40" height="10" rx="2"></rect>
+            </g>
+            
+            <g id="cross-3" transform="translate(200, 400)">
+                <rect id="cross-vertical" fill="#FF4757" opacity="0.3" x="15" y="0" width="10" height="40" rx="2"></rect>
+                <rect id="cross-horizontal" fill="#FF4757" opacity="0.3" x="0" y="15" width="40" height="10" rx="2"></rect>
+            </g>
+            
+            <g id="cross-4" transform="translate(600, 450)">
+                <rect id="cross-vertical" fill="#FF4757" opacity="0.3" x="15" y="0" width="10" height="40" rx="2"></rect>
+                <rect id="cross-horizontal" fill="#FF4757" opacity="0.3" x="0" y="15" width="40" height="10" rx="2"></rect>
+            </g>
+        </g>
+        
+        <!-- Dialog Bubble -->
+        <g id="dialog" transform="translate(300, 50)">
+            <path d="M0,30 C0,13.4 13.4,0 30,0 L170,0 C186.6,0 200,13.4 200,30 L200,70 C200,86.6 186.6,100 170,100 L150,100 L130,130 L110,100 L30,100 C13.4,100 0,86.6 0,70 L0,30 Z" id="dialog-bubble" fill="#FFFFFF" stroke="#3A85F7" stroke-width="3"></path>
+            <text id="dialog-text" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#495057">
+                <tspan x="40" y="45">How are you feeling</tspan>
+                <tspan x="40" y="70">today?</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
