@@ -1,0 +1,203 @@
+{% extends 'base.html' %}
+
+{% block title %}Doctor Dashboard - MediCare Portal{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h1 class="display-5 fw-bold mb-4">Welcome, Dr. {{ current_user.doctor_profile.first_name }}</h1>
+    
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card stat-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="stat-value">{{ appointments|length }}</div>
+                            <div class="stat-label">Upcoming Appointments</div>
+                        </div>
+                        <i class="fas fa-calendar-check stat-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card stat-card" style="background: linear-gradient(45deg, #28a745, #20883a);">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="stat-value">{{ records|length }}</div>
+                            <div class="stat-label">Recent Records</div>
+                        </div>
+                        <i class="fas fa-file-medical stat-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card stat-card" style="background: linear-gradient(45deg, #17a2b8, #138496);">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="stat-value">{{ prescriptions|length }}</div>
+                            <div class="stat-label">Active Prescriptions</div>
+                        </div>
+                        <i class="fas fa-prescription-bottle-alt stat-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-calendar-check text-primary me-2"></i>
+                            Upcoming Appointments
+                        </h5>
+                        <a href="{{ url_for('doctor_appointments') }}" class="btn btn-sm btn-outline-primary">
+                            View All
+                        </a>
+                    </div>
+                    <hr>
+                    {% if appointments %}
+                        {% for appointment in appointments %}
+                            <div class="card mb-2 appointment-card">
+                                <div class="card-body py-2 px-3">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-1">{{ appointment.appointment_datetime.strftime('%B %d, %Y at %I:%M %p') }}</h6>
+                                            <p class="mb-1">
+                                                <strong>Patient:</strong> 
+                                                {% if appointment.patient %}
+                                                    {{ appointment.patient.full_name }}
+                                                {% else %}
+                                                    Unknown Patient
+                                                {% endif %}
+                                            </p>
+                                            <small class="text-muted">Reason: {{ appointment.reason }}</small>
+                                        </div>
+                                        <a href="{{ url_for('doctor_manage_appointment', appointment_id=appointment.id) }}" class="btn btn-sm btn-outline-primary">
+                                            Manage
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>No upcoming appointments scheduled.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-file-medical text-primary me-2"></i>
+                            Recent Medical Records
+                        </h5>
+                        <a href="{{ url_for('doctor_patients') }}" class="btn btn-sm btn-outline-primary">
+                            View Patients
+                        </a>
+                    </div>
+                    <hr>
+                    {% if records %}
+                        {% for record in records %}
+                            <div class="card mb-2">
+                                <div class="card-body py-2 px-3">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-1">{{ record.date.strftime('%B %d, %Y') }}</h6>
+                                            <p class="mb-0">
+                                                <strong>Patient:</strong> 
+                                                {% if record.patient %}
+                                                    {{ record.patient.full_name }}
+                                                {% else %}
+                                                    Unknown Patient
+                                                {% endif %}
+                                            </p>
+                                            <small class="text-muted">Diagnosis: {{ record.diagnosis }}</small>
+                                        </div>
+                                        <a href="{{ url_for('doctor_view_patient', patient_id=record.patient.id) }}" class="btn btn-sm btn-outline-primary">
+                                            View Patient
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>No recent medical records.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-prescription text-primary me-2"></i>
+                            Recent Prescriptions
+                        </h5>
+                    </div>
+                    <hr>
+                    {% if prescriptions %}
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Patient</th>
+                                        <th>Medication</th>
+                                        <th>Dosage</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for prescription in prescriptions %}
+                                        <tr>
+                                            <td>{{ prescription.created_at.strftime('%Y-%m-%d') }}</td>
+                                            <td>
+                                                {% if prescription.patient %}
+                                                    {{ prescription.patient.full_name }}
+                                                {% else %}
+                                                    Unknown Patient
+                                                {% endif %}
+                                            </td>
+                                            <td>{{ prescription.medication_name }}</td>
+                                            <td>{{ prescription.dosage }} - {{ prescription.frequency }}</td>
+                                            <td>
+                                                <span class="badge {% if prescription.status == 'active' %}bg-success{% else %}bg-secondary{% endif %}">
+                                                    {{ prescription.status }}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <a href="{{ url_for('doctor_view_patient', patient_id=prescription.patient.id) }}" class="btn btn-sm btn-outline-primary">
+                                                    View Patient
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <p>No recent prescriptions issued.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

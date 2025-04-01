@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}Courses - Student Information System{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h1 class="page-header">
+            <i class="fas fa-book me-2"></i>
+            Available Courses
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-graduation-cap me-2"></i>
+                    Browse and Enroll in Courses
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if courses %}
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                        {% for course in courses %}
+                            <div class="col">
+                                <div class="card h-100 {% if course.id in student_courses %}bg-light bg-opacity-10{% endif %}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ course.name }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">{{ course.code }} | {{ course.credits }} Credits</h6>
+                                        
+                                        {% if course.teacher_name %}
+                                            <p class="card-text">
+                                                <i class="fas fa-chalkboard-teacher me-1"></i>
+                                                {{ course.teacher_name }}
+                                            </p>
+                                        {% endif %}
+                                        
+                                        <p class="card-text">{{ course.description or 'No description available.' }}</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        {% if course.id in student_courses %}
+                                            <button class="btn btn-success btn-sm w-100" disabled>
+                                                <i class="fas fa-check me-1"></i>
+                                                Enrolled
+                                            </button>
+                                        {% else %}
+                                            <form action="{{ url_for('enroll_course', course_id=course.id) }}" method="POST">
+                                                <button type="submit" class="btn btn-primary btn-sm w-100">
+                                                    <i class="fas fa-plus me-1"></i>
+                                                    Enroll
+                                                </button>
+                                            </form>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="alert alert-info mb-0">
+                        <i class="fas fa-info-circle me-2"></i>
+                        No courses are available at the moment. Please check back later.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

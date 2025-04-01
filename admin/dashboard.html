@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard - MediCare Portal{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h1 class="display-5 fw-bold mb-4">Administration Dashboard</h1>
+    
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="card stat-card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="stat-value">{{ patient_count }}</div>
+                            <div class="stat-label">Patients</div>
+                        </div>
+                        <i class="fas fa-users stat-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3 mb-4">
+            <div class="card stat-card" style="background: linear-gradient(45deg, #28a745, #20883a);">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="stat-value">{{ doctor_count }}</div>
+                            <div class="stat-label">Doctors</div>
+                        </div>
+                        <i class="fas fa-user-md stat-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3 mb-4">
+            <div class="card stat-card" style="background: linear-gradient(45deg, #17a2b8, #138496);">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="stat-value">{{ appointment_count }}</div>
+                            <div class="stat-label">Appointments</div>
+                        </div>
+                        <i class="fas fa-calendar-check stat-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3 mb-4">
+            <div class="card stat-card" style="background: linear-gradient(45deg, #dc3545, #b62d3b);">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <div class="stat-value">{{ prescription_count }}</div>
+                            <div class="stat-label">Prescriptions</div>
+                        </div>
+                        <i class="fas fa-prescription stat-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="section-title">Patient Management</h5>
+                    <p class="mb-4">Access and manage patient accounts, medical records, and appointments.</p>
+                    <div class="d-grid gap-2">
+                        <a href="{{ url_for('admin_manage_patients') }}" class="btn btn-primary">
+                            <i class="fas fa-users me-2"></i> Manage Patients
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="section-title">Doctor Management</h5>
+                    <p class="mb-4">Register new doctors, update their profiles, and monitor their activities.</p>
+                    <div class="d-grid gap-2">
+                        <a href="{{ url_for('admin_manage_doctors') }}" class="btn btn-primary">
+                            <i class="fas fa-user-md me-2"></i> Manage Doctors
+                        </a>
+                        <a href="{{ url_for('admin_create_doctor') }}" class="btn btn-outline-primary">
+                            <i class="fas fa-plus-circle me-2"></i> Add New Doctor
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="section-title">Medication Database</h5>
+                    <p class="mb-4">Manage the medication database for prescription references.</p>
+                    <div class="d-grid gap-2 d-md-flex">
+                        <a href="{{ url_for('admin_manage_medications') }}" class="btn btn-primary">
+                            <i class="fas fa-pills me-2"></i> Manage Medications
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

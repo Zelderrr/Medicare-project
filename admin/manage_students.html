@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+
+{% block title %}Manage Students - Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h1 class="page-header">
+            <i class="fas fa-users me-2"></i>
+            Manage Students
+        </h1>
+    </div>
+</div>
+
+{% if grading_mode %}
+    <!-- Grading Form -->
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-edit me-2"></i>
+                        Update Grades for {{ enrollment.student.full_name }} - {{ enrollment.course.name }}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('admin_grade_enrollment', enrollment_id=enrollment.id) }}">
+                        {{ form.hidden_tag() }}
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="midterm_grade" class="form-label">{{ form.midterm_grade.label }}</label>
+                                {{ form.midterm_grade(class="form-control") }}
+                                {% if form.midterm_grade.errors %}
+                                    {% for error in form.midterm_grade.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="final_grade" class="form-label">{{ form.final_grade.label }}</label>
+                                {{ form.final_grade(class="form-control") }}
+                                {% if form.final_grade.errors %}
+                                    {% for error in form.final_grade.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="status" class="form-label">{{ form.status.label }}</label>
+                            {{ form.status(class="form-select") }}
+                            {% if form.status.errors %}
+                                {% for error in form.status.errors %}
+                                    <div class="text-danger">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ url_for('admin_view_student', student_id=enrollment.student_id) }}" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left me-1"></i>
+                                Back to Student
+                            </a>
+                            {{ form.submit(class="btn btn-primary") }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% elif view_mode %}
+    <!-- Student Detail View -->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-user me-2"></i>
+                        Student Details
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-3">
+                        <i class="fas fa-user-circle fa-5x text-primary mb-3"></i>
+                        <h4>{{ student.full_name }}</h4>
+                        <p class="text-muted">ID: {{ student.id }}</p>
+                    </div>
+                    
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <strong><i class="fas fa-at me-2"></i>Email:</strong>
+                            <span class="float-end">{{ student.user.email }}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <strong><i class="fas fa-calendar me-2"></i>Date of Birth:</strong>
+                            <span class="float-end">{{ student.date_of_birth or 'Not set' }}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <strong><i class="fas fa-graduation-cap me-2"></i>Grade Level:</strong>
+                            <span class="float-end">{{ student.grade_level or 'Not set' }}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <strong><i class="fas fa-phone me-2"></i>Phone:</strong>
+                            <span class="float-end">{{ student.phone_number or 'Not set' }}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <strong><i class="fas fa-map-marker-alt me-2"></i>Address:</strong>
+                            <span class="float-end">{{ student.address or 'Not set' }}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-footer text-end">
+                    <a href="{{ url_for('admin_manage_students') }}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left me-1"></i>
+                        Back to List
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-book-reader me-2"></i>
+                        Enrolled Courses
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if enrollments %}
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Course</th>
+                                        <th>Code</th>
+                                        <th>Midterm</th>
+                                        <th>Final</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for enrollment in enrollments %}
+                                        <tr>
+                                            <td>{{ enrollment.course.name }}</td>
+                                            <td>{{ enrollment.course.code }}</td>
+                                            <td>{{ enrollment.midterm_grade or 'N/A' }}</td>
+                                            <td>{{ enrollment.final_grade or 'N/A' }}</td>
+                                            <td>
+                                                <span class="badge {% if enrollment.status == 'active' %}bg-success{% elif enrollment.status == 'completed' %}bg-primary{% else %}bg-danger{% endif %}">
+                                                    {{ enrollment.status|capitalize }}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <a href="{{ url_for('admin_grade_enrollment', enrollment_id=enrollment.id) }}" class="btn btn-sm btn-primary">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <div class="alert alert-info mb-0">
+                            <i class="fas fa-info-circle me-2"></i>
+                            This student is not enrolled in any courses.
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <!-- Student List View -->
+    <div class="row">
+        <div class="col">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-user-graduate me-2"></i>
+                        All Students
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if students %}
+                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                            {% for student in students %}
+                                <div class="col">
+                                    <div class="card student-card h-100">
+                                        <div class="card-body">
+                                            <div class="text-center mb-3">
+                                                <i class="fas fa-user-circle fa-3x text-primary mb-2"></i>
+                                                <h5 class="card-title mb-0">{{ student.full_name }}</h5>
+                                                <p class="text-muted small">ID: {{ student.id }}</p>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item px-0">
+                                                    <i class="fas fa-envelope text-muted me-2"></i>
+                                                    {{ student.user.email }}
+                                                </li>
+                                                <li class="list-group-item px-0">
+                                                    <i class="fas fa-graduation-cap text-muted me-2"></i>
+                                                    Grade: {{ student.grade_level or 'Not set' }}
+                                                </li>
+                                                <li class="list-group-item px-0">
+                                                    <i class="fas fa-phone text-muted me-2"></i>
+                                                    {{ student.phone_number or 'No phone' }}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="card-footer text-center">
+                                            <a href="{{ url_for('admin_view_student', student_id=student.id) }}" class="btn btn-primary btn-sm">
+                                                <i class="fas fa-eye me-1"></i>
+                                                View Details
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="alert alert-info mb-0">
+                            <i class="fas fa-info-circle me-2"></i>
+                            No students registered yet.
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}
