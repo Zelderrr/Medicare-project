@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - MediCare Portal{% endblock %}
+
+{% block content %}
+<div class="hero-section py-5" style="background-color: rgba(34, 197, 94, 0.1);">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-3" style="color: var(--brand-primary);">Your Health, Our Priority</h1>
+                <p class="lead mb-4">
+                    MediCare Portal provides a secure and convenient way to manage your healthcare needs. 
+                    Access your medical records, schedule appointments, and connect with healthcare professionals all in one place.
+                </p>
+                {% if not current_user.is_authenticated %}
+                    <div class="d-grid gap-2 d-md-flex">
+                        <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg px-4 me-md-2">Log In</a>
+                        <a href="{{ url_for('register') }}" class="btn btn-danger btn-lg px-4" style="background-color: var(--brand-secondary);">Register</a>
+                    </div>
+                {% else %}
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-primary btn-lg px-4">Go to Dashboard</a>
+                {% endif %}
+            </div>
+            <div class="col-lg-6 mt-5 mt-lg-0 text-center">
+                <img src="{{ url_for('static', filename='img/healthcare-illustration.svg') }}" alt="Healthcare Illustration" class="img-fluid" style="max-height: 400px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row text-center mb-5">
+        <div class="col-lg-8 mx-auto">
+            <h2 class="fw-bold">Why Choose MediCare Portal?</h2>
+            <p class="lead text-muted">A comprehensive healthcare management system designed for the modern world.</p>
+        </div>
+    </div>
+    
+    <div class="row g-4 py-3">
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon text-white rounded-circle mb-3" style="background-color: var(--brand-secondary);">
+                        <i class="fas fa-user-shield fa-2x"></i>
+                    </div>
+                    <h3 class="h4 fw-bold" style="color: var(--brand-secondary);">Secure & Private</h3>
+                    <p>Your health information is encrypted and protected with the highest security standards.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon text-dark rounded-circle mb-3" style="background-color: var(--brand-accent);">
+                        <i class="fas fa-calendar-check fa-2x"></i>
+                    </div>
+                    <h3 class="h4 fw-bold" style="color: var(--brand-primary);">Easy Appointments</h3>
+                    <p>Schedule, reschedule, or cancel appointments with your healthcare providers with just a few clicks.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="feature-icon text-white rounded-circle mb-3" style="background-color: var(--brand-primary);">
+                        <i class="fas fa-file-medical-alt fa-2x"></i>
+                    </div>
+                    <h3 class="h4 fw-bold" style="color: var(--brand-secondary);">Medical Records</h3>
+                    <p>Access your complete medical history, test results, and prescriptions anytime, anywhere.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-5" style="background-color: var(--brand-secondary); color: white;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-center mb-4 mb-lg-0">
+                <img src="{{ url_for('static', filename='img/doctor-patient.svg') }}" alt="Doctor and Patient" class="img-fluid" style="max-height: 350px;">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="fw-bold mb-3 text-warning">For Patients</h2>
+                <ul class="list-unstyled mb-4">
+                    <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i> View and manage your appointments</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i> Access your medical records securely</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i> Track medications and prescriptions</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i> Communicate with your healthcare providers</li>
+                </ul>
+                {% if not current_user.is_authenticated %}
+                    <a href="{{ url_for('register') }}" class="btn btn-warning text-dark">Register as a Patient</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2 text-center mb-4 mb-lg-0">
+            <img src="{{ url_for('static', filename='img/doctors.svg') }}" alt="Medical Professionals" class="img-fluid" style="max-height: 350px;">
+        </div>
+        <div class="col-lg-6 order-lg-1">
+            <h2 class="fw-bold mb-3" style="color: var(--brand-primary);">For Healthcare Professionals</h2>
+            <ul class="list-unstyled mb-4">
+                <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: var(--brand-primary);"></i> Manage your patient appointments</li>
+                <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: var(--brand-primary);"></i> Access patient medical histories</li>
+                <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: var(--brand-primary);"></i> Issue and track prescriptions</li>
+                <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: var(--brand-primary);"></i> Maintain comprehensive medical records</li>
+            </ul>
+            <p>Healthcare professionals are registered through system administrators.</p>
+        </div>
+    </div>
+</div>
+
+<div class="py-5" style="background-color: rgba(34, 197, 94, 0.1);">
+    <div class="container">
+        <div class="row text-center mb-4">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="fw-bold" style="color: var(--brand-primary);">Ready to get started?</h2>
+                <p class="lead">Take control of your healthcare journey today.</p>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-6 d-grid gap-2 mx-auto">
+                {% if not current_user.is_authenticated %}
+                    <a href="{{ url_for('register') }}" class="btn btn-lg px-4" style="background-color: var(--brand-secondary); color: white;">Create Your Account</a>
+                    <p class="text-center mt-2">Already have an account? <a href="{{ url_for('login') }}" style="color: var(--brand-primary);">Login here</a></p>
+                {% else %}
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-lg px-4" style="background-color: var(--brand-primary); color: white;">Go to Your Dashboard</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --brand-primary: #22c55e;    /* Green */
+        --brand-secondary: #ef4444;  /* Red */
+        --brand-accent: #facc15;     /* Yellow */
+    }
+    
+    .hero-section {
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+    }
+    
+    .feature-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 4rem;
+        width: 4rem;
+    }
+    
+    .btn-primary {
+        background-color: var(--brand-primary);
+        border-color: var(--brand-primary);
+    }
+    
+    .btn-primary:hover, .btn-primary:focus {
+        background-color: #1ca24d;
+        border-color: #1ca24d;
+    }
+    
+    .text-primary {
+        color: var(--brand-primary) !important;
+    }
+</style>
+{% endblock %}
